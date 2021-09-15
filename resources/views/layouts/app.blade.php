@@ -165,6 +165,14 @@
             </button>
         </div>
         <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0">
+            @if(session()->has('impersonate'))
+            <div class="bg-red-800 text-white m:auto p-3 text-center font-bold">
+                <span>You are impersonation {{auth()->user()->name}}</span>
+                <a href="{{route('leave-impersonation')}}" class="text-white font-bold underline">
+                    Leave Impersonation &rarr;
+                </a>
+            </div>
+            @endif
             <div class="pt-2 pb-6 md:py-6">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h1 class="text-2xl font-semibold text-gray-900">@yield('title')</h1>
